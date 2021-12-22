@@ -2,12 +2,13 @@ import express from "express";
 import multer from "multer";
 import { join } from "path";
 import { logger } from "./logger";
+import { loadModel } from "./model";
 import "./env";
 
 async function main() {
   const storage = multer.memoryStorage();
-  const upload = multer({ storage: storage });
-
+  const upload = multer({ storage });
+  const model = await loadModel();
   const app = express();
 
   app.use(express.json());
