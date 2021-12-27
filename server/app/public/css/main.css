@@ -1,4 +1,120 @@
 .app {
   width: 100%;
+  max-width: 1200px;
+  justify-content: center;
   display: flex;
+  flex-direction: column;
+  margin: auto;
+  overflow: auto;
+  padding-top: 10em;
+  padding-bottom: 4em;
+}
+
+.project-heading {
+  font-weight: 700;
+  font-size: 2.8em;
+  text-align: center;
+}
+
+.data-heading {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2.2em;
+  margin-top: 0.4em;
+}
+
+.file-input {
+  visibility: hidden;
+  display: none;
+}
+
+.avaliable-labels {
+  padding: 0.4em;
+  width: 100%;
+  list-style-position: inside;
+}
+
+.avaliable-labels li {
+  padding: 0.2em;
+}
+
+.file-input-wrapper {
+  align-self: center;
+  width: fit-content;
+}
+
+.labels-title {
+  margin-top: 1em;
+  font-weight: 700;
+}
+
+.file-button {
+  all: unset;
+  cursor: pointer;
+  margin-top: 2.5em;
+  padding: 0.5em 0.75em;
+  border: 0.125em solid black;
+  border-radius: 0.5em;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.4em;
+}
+
+.loader-indicator {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.error-indicator {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: 700;
+  color: red;
+}
+
+.result-container {
+  margin-top: 2em;
+  width: 250px;
+  border: 1px solid black;
+  height: 300px;
+  border-radius: 0.25em;
+}
+
+.result-container img {
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid black;
+}
+
+.result {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25em;
+}
+
+@media (max-width: 1024px) {
+  .app {
+    padding: 2em 1.5em;
+  }
 }

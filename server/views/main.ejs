@@ -7,14 +7,26 @@
     <title>App</title>
     <link rel="stylesheet" href="css/global.css" type="text/css" />
     <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="js/main.js" type="module"></script>
   </head>
 </html>
 <body>
-  <div>
-    <h1></h1>
-    <h2></h2>
-    <div>
+  <div class="app">
+    <h1 class="project-heading">Fish images images classification</h1>
+    <h2 class="data-heading">A Large Scale Fish Dataset</h2>
+    <span class="labels-title">All avaliable labels for data:</span>
+    <ol class="avaliable-labels">
+      <% labels.forEach((label) => { %>
+      <li><%= label %></li>
+      <% }); %>
+    </ol>
+    <div class="file-input-wrapper">
       <input type="file" class="file-input" />
       <button type="button" class="file-button">Select file to send</button>
     </div>
