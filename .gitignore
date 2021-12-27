@@ -2,3 +2,4 @@ node_modules
 ./server/build
 .idea
 model/fishes
+fishes_model.h5

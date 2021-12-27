@@ -23,13 +23,17 @@ const loadModel = async () => {
 };
 
 const createImage = (buffer: Buffer) => {
-  return tf.node.decodeImage(buffer).expandDims(0).toFloat();
+  return tf.node
+    .decodeImage(buffer)
+    .resizeNearestNeighbor([224, 224])
+    .expandDims(0)
+    .toFloat();
 };
 
 const predictResult = async (model: LayersModel, buffer: Buffer) => {
-  const resizedImage = await sharp(buffer).jpeg().resize(224, 224).toBuffer();
+  // const resizedImage = await sharp(buffer).jpeg().resize(224, 224).toBuffer();
 
-  const image = createImage(resizedImage);
+  const image = createImage(buffer);
   const prediction = model.predict(image) as Tensor1D;
   const data = await prediction.data();
 
