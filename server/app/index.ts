@@ -1,9 +1,9 @@
 import express from "express";
 import multer from "multer";
-import { setTimeout } from "timers/promises";
 import { join } from "path";
 import { logger } from "./logger";
 import { labels, loadModel, predictResult } from "./model";
+// import { setTimeout } from "timers/promises";
 import "./env";
 
 async function main() {
@@ -30,7 +30,7 @@ async function main() {
 
     const result = await predictResult(model, req.file.buffer);
 
-    await setTimeout(2000);
+    // await setTimeout(2000);
     res.json({ result });
   });
 
