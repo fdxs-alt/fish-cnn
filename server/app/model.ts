@@ -1,7 +1,6 @@
 import * as tf from "@tensorflow/tfjs-node";
 import { LayersModel, Tensor1D } from "@tensorflow/tfjs-node";
 import { resolve } from "path";
-import sharp from "sharp";
 import { logger } from "./logger";
 
 const labels = [
@@ -25,18 +24,16 @@ const loadModel = async () => {
 const createImage = (buffer: Buffer) => {
   return tf.node
     .decodeImage(buffer)
-    .resizeNearestNeighbor([224, 224])
+    .resizeBilinear([224, 224])
+    .div(255)
     .expandDims(0)
     .toFloat();
 };
 
 const predictResult = async (model: LayersModel, buffer: Buffer) => {
-  // const resizedImage = await sharp(buffer).jpeg().resize(224, 224).toBuffer();
-
   const image = createImage(buffer);
   const prediction = model.predict(image) as Tensor1D;
   const data = await prediction.data();
-
   logger.info(data);
 
   const result = labels[(await prediction.argMax(1).data())[0]];
