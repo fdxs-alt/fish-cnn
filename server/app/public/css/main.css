@@ -68,7 +68,7 @@
 
 .loader-indicator {
   width: 250px;
-  height: 250px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,13 +78,13 @@
 
 .error-indicator {
   width: 250px;
-  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1em;
   font-weight: 700;
   color: red;
+  height: 300px;
 }
 
 .result-container {

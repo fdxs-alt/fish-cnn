@@ -25,7 +25,7 @@ const createImage = (buffer: Buffer) => {
   return tf.node
     .decodeImage(buffer)
     .resizeBilinear([224, 224])
-    .div(255)
+    .div(tf.scalar(255))
     .expandDims(0)
     .toFloat();
 };
@@ -34,6 +34,7 @@ const predictResult = async (model: LayersModel, buffer: Buffer) => {
   const image = createImage(buffer);
   const prediction = model.predict(image) as Tensor1D;
   const data = await prediction.data();
+
   logger.info(data);
 
   const result = labels[(await prediction.argMax(1).data())[0]];

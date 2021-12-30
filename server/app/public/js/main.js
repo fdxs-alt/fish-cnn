@@ -34,9 +34,13 @@ const handleImageSend = async (file) => {
 
     const data = await response.json();
 
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
     createResult(file, data);
   } catch (error) {
-    createErrorElement();
+    createErrorElement(error);
   } finally {
     imageContainer.removeChild(loader);
   }
